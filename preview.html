@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swarm Page Intro — 可交互演示</title>
+<style>
+*{box-sizing:border-box}html{background:#f4f3ef;color:#202320;font-family:Arial,"PingFang SC",sans-serif}body{margin:0}button,a,input{font:inherit}a{color:inherit;text-decoration:none}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #6b57d5;outline-offset:5px}.page{max-width:1240px;margin:auto;padding:0 44px}nav{height:92px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:23px;font-weight:800;letter-spacing:-1px;display:flex;align-items:center;gap:10px}.mark{display:inline-grid;width:26px;height:26px;place-items:center;background:#202320;color:#fff;border-radius:7px;font-size:20px}.nav-right{display:flex;align-items:center;gap:30px;font-size:13px}.nav-right button{border:1px solid #cccfc5;border-radius:30px;padding:10px 16px;background:transparent;font-size:12px}.line{height:1px;background:#cccfc5}.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:65px;align-items:center;padding:56px 0 48px}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;margin:0 0 24px;color:#646b63}h1{font-size:clamp(45px,5.4vw,72px);letter-spacing:-4px;line-height:1.04;margin:0;font-weight:500}h1 span{display:block;width:fit-content}.serif{font-family:Georgia,serif;font-style:italic;color:#597258;letter-spacing:-3px}.sub{font-size:14px;color:#6b7069;line-height:1.9;margin:22px 0 25px}.sub span{display:block;width:fit-content}.primary{display:inline-flex}.primary-visual{border:0;background:#253c2c;color:#fff;padding:15px 22px;border-radius:6px;display:inline-flex;gap:38px;align-items:center;font-size:13px}.hero-art{height:300px;background:#e2e6db;border-radius:18px;position:relative;overflow:hidden;display:grid;place-items:center}.art-grid{position:absolute;inset:0;background-image:linear-gradient(#b0b9a325 1px,transparent 1px),linear-gradient(90deg,#b0b9a325 1px,transparent 1px);background-size:30px 30px}.canvas-card{width:74%;height:204px;border:1px solid #bcc7b2;border-radius:10px;background:#fafbf7;box-shadow:0 22px 32px #30462518;position:relative;padding:22px}.canvas-top{display:flex;justify-content:space-between;font-size:10px;color:#5f735d;letter-spacing:1px}.canvas-title{font-size:29px;font-family:Georgia,serif;margin:25px 0 18px;letter-spacing:-1px}.mini-grid{display:flex;gap:8px}.mini{height:49px;flex:1;border-radius:5px;background:#cdd7c4}.mini:nth-child(2){background:#d8d6e5}.mini:nth-child(3){background:#e8dac3}.art-badge{position:absolute;bottom:19px;right:20px;font-size:10px;letter-spacing:1px;color:#6a7964}.section-top{display:flex;align-items:center;justify-content:space-between;padding:23px 0 18px;font-size:11px;letter-spacing:1.8px}.muted{color:#8a9086}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project{border:1px solid #d4d7ce;border-radius:12px;background:#f9f9f5;padding:23px;min-height:153px}.project-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;color:#77836e;font:11px monospace}.project h2{font-size:20px;font-weight:500;letter-spacing:-.5px;margin:0 0 9px;width:fit-content}.project p{margin:0;color:#7b8177;font-size:12px;width:fit-content}.bottom{display:flex;align-items:center;justify-content:space-between;padding:26px 0 30px;color:#7c8377;font-size:11px;gap:20px}.test-form{display:flex;align-items:center;gap:7px}.test-form input{width:160px;border:1px solid #cdd1c7;border-radius:5px;padding:8px 10px;background:#fafbf7;font-size:11px}.test-form button{padding:8px 12px;border:1px solid #cdd1c7;border-radius:5px;background:transparent;font-size:11px}#notice{min-height:15px}.demo-help{color:#83897e;font-size:10px;padding-bottom:24px}#replay{white-space:nowrap}@media(max-width:700px){.page{padding:0 22px}nav{height:72px}.nav-right{gap:14px}.nav-right a{display:none}.hero{grid-template-columns:1fr;gap:28px;padding:37px 0 30px}h1{font-size:52px;letter-spacing:-3px}.hero-art{height:205px}.canvas-card{height:160px;padding:16px}.canvas-title{margin:18px 0;font-size:23px}.mini{height:27px}.cards{grid-template-columns:1fr}.project{min-height:130px}.bottom{align-items:flex-start;flex-direction:column}.sub{font-size:12px}.brand{font-size:20px}}
+
+.chapter{padding:112px 0 90px;min-height:850px}.chapter-title{font-size:clamp(38px,4.8vw,64px);letter-spacing:-2.6px;line-height:1.08;font-weight:500;margin:22px 0 25px}.chapter-title span{display:block;width:fit-content}.chapter-lead{color:#71796d;font-size:15px;line-height:1.9;margin-bottom:40px;max-width:600px}.feature-layout{display:grid;grid-template-columns:1.25fr 1fr;gap:50px;align-items:center}.feature-art{height:350px;border-radius:18px;background:#e0e3d7;display:flex;align-items:center;justify-content:center;gap:15px;padding:40px}.tile{width:36%;height:215px;border:1px solid #c4ceba;background:#f7f8f1;border-radius:10px;padding:20px;display:flex;flex-direction:column;justify-content:space-between}.tile:nth-child(2){background:#384e3d;color:#f2f1dd;margin-top:46px}.tile-name{font-family:Georgia,serif;font-size:29px}.tile-note{font:10px monospace;letter-spacing:1px}.feature-copy h3{font-size:31px;font-weight:500;letter-spacing:-1px;margin:0 0 19px;width:fit-content}.feature-copy p{color:#727b6b;line-height:2;font-size:14px;max-width:380px}.pill-row{display:flex;gap:8px;margin-top:25px}.tag{padding:8px 13px;border:1px solid #cdd2c5;border-radius:20px;font-size:10px;color:#6f7965}.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}.process-card{background:#f9f9f5;border:1px solid #d4d7ce;border-radius:12px;min-height:230px;padding:27px}.process-card .step{font:12px monospace;color:#8a9380}.process-card h3{font-size:24px;font-weight:500;margin:37px 0 14px;width:fit-content}.process-card p{font-size:13px;line-height:1.9;color:#7a8174;margin:0}.closing{padding:95px 0 75px;text-align:center}.closing h2{font:italic 58px Georgia,serif;color:#597258;letter-spacing:-2px;width:fit-content;margin:0 auto 25px}.closing p{width:fit-content;margin:0 auto 30px;color:#727a6b;font-size:14px}.demo-status{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:2147483645;display:flex;align-items:center;gap:18px;border:1px solid #d4d7ce;background:#fafbf5ed;backdrop-filter:blur(12px);box-shadow:0 6px 25px #28332110;border-radius:30px;padding:11px 16px;font-size:11px;color:#627058;max-width:calc(100% - 30px);white-space:nowrap}.demo-status button{border:0;border-radius:18px;background:#e8edde;color:#52614a;padding:7px 12px;font-size:11px}.demo-status button[hidden]{display:none}.scroll-invite{padding-top:30px;color:#939b89;font:10px monospace;letter-spacing:2px}.bottom{padding-bottom:90px}@media(max-width:700px){.chapter{padding:80px 0 55px;min-height:0}.feature-layout{grid-template-columns:1fr;gap:30px}.feature-art{height:275px;padding:25px}.tile{height:170px;width:44%;padding:13px}.tile-name{font-size:24px}.chapter-title{font-size:42px}.chapter-lead{font-size:13px}.process-grid{grid-template-columns:1fr}.process-card{min-height:185px}.process-card h3{margin-top:25px}.closing h2{font-size:42px}.closing{padding:80px 0 50px}.demo-status{font-size:10px;gap:10px}}
+</style>
+</head>
+<body>
+<div class="page" id="site">
+<nav><a class="brand" href="#" aria-label="Forma 首页"><span class="mark" data-swarm="box" data-swarm-logo>f</span><span data-swarm="text">forma.</span></a><div class="nav-right"><a href="#work"><span data-swarm="text">Selected work</span></a><button id="replay">↻ 重播开场</button></div></nav>
+<div class="line" data-swarm="line"></div>
+<section class="hero">
+<div><p class="eyebrow" data-swarm="text">Independent minds. Shared canvas.</p><h1><span data-swarm="text">Good things.</span><span class="serif" data-swarm="text">Built together.</span></h1><p class="sub"><span data-swarm="text">把想法变成看得见、用得上的作品。</span><span data-swarm="text">让每一处细节，都有它存在的理由。</span></p><a class="primary" href="#work"><span class="primary-visual" data-swarm="box">Explore our work <span>↗</span></span></a></div>
+<div class="hero-art" data-swarm="box"><div class="art-grid"></div><div class="canvas-card" data-swarm="box"><div class="canvas-top"><span data-swarm="text">A SHARED CANVAS</span><span>↗</span></div><div class="canvas-title" data-swarm="text">Room for good ideas.</div><div class="mini-grid"><div class="mini" id="mini-master" data-swarm="box"></div><div class="mini" data-swarm="duplicate" data-swarm-from="#mini-master"></div><div class="mini" data-swarm="duplicate" data-swarm-from="#mini-master"></div></div></div><div class="art-badge">THOUGHTFULLY PUT TOGETHER</div></div>
+</section>
+<div class="line" data-swarm="line"></div>
+<div class="section-top"><span data-swarm="text">SELECTED PROJECTS</span><span class="muted">01 — 03 / 2026</span></div>
+<section class="cards" id="work">
+<article class="project" id="project-master" data-swarm="box"><div class="project-head"><span>01 / IDENTITY</span><span>↗</span></div><h2 data-swarm="text">A quieter kind of bold.</h2><p data-swarm="text">品牌系统 · Brand identity</p></article>
+<article class="project" data-swarm="duplicate" data-swarm-from="#project-master"><div class="project-head"><span>02 / DIGITAL</span><span>↗</span></div><h2 data-swarm="text">Ideas, made useful.</h2><p data-swarm="text">数字体验 · Digital experience</p></article>
+<article class="project" data-swarm="duplicate" data-swarm-from="#project-master"><div class="project-head"><span>03 / PRODUCT</span><span>↗</span></div><h2 data-swarm="text">Small details. Big feeling.</h2><p data-swarm="text">产品设计 · Product design</p></article>
+</section>
+
+<div class="scroll-invite">SCROLL TO SEE WHAT COMES NEXT ↓</div>
+<section class="chapter" id="identity">
+<div class="line" data-swarm="line"></div>
+<p class="eyebrow" style="margin-top:30px" data-swarm="text">01 / A CLOSER LOOK</p>
+<h2 class="chapter-title"><span data-swarm="text">A little less noise.</span><span class="serif" data-swarm="text">A lot more meaning.</span></h2>
+<p class="chapter-lead" data-swarm="text">好的设计，值得慢一点看。把熟悉的事物重新整理，让每一次接触都清楚、自然。</p>
+<div class="feature-layout">
+<div class="feature-art" data-swarm="box"><div class="tile" id="tile-master" data-swarm="box"><span class="tile-note" data-swarm="text">THE EVERYDAY SERIES</span><span class="tile-name" data-swarm="text">Olea.</span><span class="tile-note" data-swarm="text">GROW AT YOUR OWN PACE</span></div><div class="tile" data-swarm="duplicate" data-swarm-from="#tile-master"><span class="tile-note" data-swarm="text">THOUGHTFULLY SIMPLE</span><span class="tile-name" data-swarm="text">Olea.</span><span class="tile-note" data-swarm="text">MADE TO FEEL RIGHT</span></div></div>
+<div class="feature-copy"><h3 data-swarm="text">Made for everyday.</h3><p data-swarm="text">从名字、颜色到包装上的一行小字，我们让每个部分都说同一种语言。安静，也有自己的辨识度。</p><div class="pill-row"><span class="tag" id="tag-master" data-swarm="box">STRATEGY</span><span class="tag" data-swarm="duplicate" data-swarm-from="#tag-master">IDENTITY</span><span class="tag" data-swarm="duplicate" data-swarm-from="#tag-master">PACKAGING</span></div></div>
+</div></section>
+<section class="chapter" id="process">
+<div class="line" data-swarm="line"></div>
+<p class="eyebrow" style="margin-top:30px" data-swarm="text">02 / HOW WE WORK</p>
+<h2 class="chapter-title"><span data-swarm="text">From a first thought</span><span class="serif" data-swarm="text">to the final detail.</span></h2>
+<p class="chapter-lead" data-swarm="text">一个方向，一起推敲。让想法在讨论、尝试和打磨中，长成真正可用的作品。</p>
+<div class="process-grid">
+<article class="process-card" id="step-master" data-swarm="box"><span class="step">01 — DISCOVER</span><h3 data-swarm="text">Ask better questions.</h3><p data-swarm="text">从问题开始。理解真实的使用场景，找到最值得解决的那一件事。</p></article>
+<article class="process-card" data-swarm="duplicate" data-swarm-from="#step-master"><span class="step">02 — EXPLORE</span><h3 data-swarm="text">Make room to try.</h3><p data-swarm="text">把想法做出来。在真实的尺度里比较、体验，再选择适合的方向。</p></article>
+<article class="process-card" data-swarm="duplicate" data-swarm-from="#step-master"><span class="step">03 — REFINE</span><h3 data-swarm="text">Care for the details.</h3><p data-swarm="text">回到每一处细节。持续打磨，让作品的外观和使用感受同样完整。</p></article>
+</div></section>
+<div class="line" data-swarm="line"></div>
+<section class="closing"><h2 data-swarm="text">Let's make it matter.</h2><p data-swarm="text">从一个好问题，开始下一件作品。</p><a class="primary" href="mailto:hello@example.com"><span class="primary-visual" data-swarm="box">Start a conversation <span>↗</span></span></a></section>
+
+<footer class="bottom"><span>FORMA STUDIO © 2026 · 演示项目</span><form class="test-form"><input aria-label="测试输入" placeholder="试试输入，内容会保留"><button type="submit">测试交互</button><span id="notice" aria-live="polite"></span></form></footer>
+<div class="demo-help">Swarm Page Intro 演示 · 按内容复杂度调整节奏，随滚动继续搭建。Esc 或“跳过动画”可立即显示全页；开启“减少动态效果”时跳过。</div>
+</div>
+<div class="demo-status" role="status"><span id="phase-note">准备开始</span><button id="skip">跳过动画</button></div>
+<script type="module">
+/**
+ * Swarm Page Intro — independent, dependency-free, viewport-driven DOM reveal.
+ * Mark block/inline-block elements data-swarm="box|text|line|duplicate".
+ * Scrolling schedules work; leaving the viewport pauses it without resetting it.
+ */
+const played = new WeakSet();
+const active = new WeakMap();
+const NS = 'http://www.w3.org/2000/svg';
+const COLORS = ['#7758d6', '#e16949', '#278e81', '#3283cd', '#b768a7', '#9b802d'];
+const NAMES = ['Layout', 'Type', 'Detail', 'Media', 'Compose', 'Polish'];
+const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+const ease = t => 1 - Math.pow(1 - clamp(t, 0, 1), 3);
+const lerp = (a, b, t) => a + (b - a) * t;
+const hiddenClip = 'inset(0 100% 100% 0)';
+
+export function startSwarmIntro(options = {}) {
+  const doc = typeof document === 'object' ? document : null, win = doc?.defaultView;
+  let resolveFinished;
+  const finished = new Promise(resolve => { resolveFinished = resolve; });
+  let root, controller, observer, resizeObserver, host, svg, agents = [], items = [];
+  let frame, watchdog, readinessTimer, closed = false, initialized = false;
+  let phase = 'preparing', estimatedDuration = 0, lastFrame = 0, lastState = '';
+  let batchRemaining = 0, buildingSince = 0, count = 5, labels = NAMES;
+  const handle = { finished, cleanup, getState };
+  function getState() {
+    const completed = items.filter(item => item.done).length;
+    const running = closed || phase !== 'building' ? 0 : items.filter(item => !item.done && item.lane !== null && item.visible).length;
+    return { phase, pending: items.length - completed - running, active: running,
+      completed, total: items.length, estimatedDuration };
+  }
+  function notify() {
+    const state = getState(), signature = JSON.stringify(state);
+    if (signature === lastState) return;
+    lastState = signature;
+    try { options.onStateChange?.(state); } catch { /* UI callbacks cannot break cleanup. */ }
+  }
+  function cleanup(reason = 'manual') {
+    if (closed) return;
+    closed = true;
+    if (win) {
+      win.cancelAnimationFrame(frame);win.clearTimeout(watchdog);win.clearTimeout(readinessTimer);
+    }
+    controller?.abort();observer?.disconnect();resizeObserver?.disconnect();
+    for (const item of items) { item.animation?.cancel();item.animation = null;item.lane = null; }
+    host?.remove();
+    phase = ['complete','no-targets','reduced-motion','already-played'].includes(reason) ? 'complete' : 'cancelled';
+    if (doc && active.get(doc) === handle) active.delete(doc);
+    notify();resolveFinished({ reason });
+  }
+  if (!doc || !win || !doc.body || !win.Element.prototype.animate) { cleanup('unsupported');return handle; }
+  if (active.has(doc)) return active.get(doc);
+  try {
+    if (win.matchMedia('(prefers-reduced-motion: reduce)').matches) { cleanup('reduced-motion');return handle; }
+    if (played.has(doc) && !options.force) { cleanup('already-played');return handle; }
+    root = typeof options.root === 'string' ? doc.querySelector(options.root) : options.root || doc;
+    if (!root?.querySelectorAll) { cleanup('no-root');return handle; }
+    count = Math.round(clamp(Number(options.cursorCount) || (win.innerWidth < 700 ? 3 : 5), 2, 6));
+    labels = Array.isArray(options.labels) ? options.labels : NAMES;
+    controller = new win.AbortController();active.set(doc, handle);
+    const listen = (target, event, callback) => target.addEventListener(event, callback,
+      { capture: true, passive: true, signal: controller.signal });
+    listen(win, 'keydown', event => { if (event.key === 'Escape') cleanup('Escape'); });
+    listen(win, 'pagehide', () => cleanup('pagehide'));
+    listen(win, 'scroll', wake);listen(win, 'resize', () => { for (const item of items) { item.measured = false; item.clips = undefined; }wake(); });
+    listen(doc, 'visibilitychange', () => { if (doc.hidden) wait();else wake(); });
+    listen(doc, 'focusin', event => revealControl(event.target));
+    listen(doc, 'pointerdown', event => {
+      const control = event.target.closest?.('a,button,input,select,textarea,[contenteditable],[role="button"]');
+      if (control) revealControl(control);
+    });
+    const motion = win.matchMedia('(prefers-reduced-motion: reduce)');
+    listen(motion, 'change', () => { if (motion.matches) cleanup('reduced-motion'); });
+    const readyTimeout = clamp(Number(options.readyTimeout) || 650, 50, 5000);
+    const imageReady = [...root.querySelectorAll('img')].filter(img => intersects(img) && !img.complete).map(img => new Promise(resolve => {
+      img.addEventListener('load',resolve,{once:true,signal:controller.signal});
+      img.addEventListener('error',resolve,{once:true,signal:controller.signal});
+    }));
+    const prepared = Promise.all([options.ready,doc.fonts?.ready,...imageReady]).then(() => true,() => false);
+    const bounded = new Promise(resolve => {
+      readinessTimer = win.setTimeout(() => resolve(false), readyTimeout);
+      controller.signal.addEventListener('abort',() => resolve(false),{once:true});
+    });
+    notify();
+    Promise.race([prepared,bounded]).then(ready => {
+      if (closed) return;
+      win.clearTimeout(readinessTimer);
+      if (!ready) { cleanup('not-ready');return; }
+      try { initialize(); } catch { cleanup('error'); }
+    });
+  } catch { cleanup('error'); }
+  return handle;
+
+  function initialize() {
+    const candidates = [...root.querySelectorAll('[data-swarm]')];
+    if (root instanceof win.Element && root.matches('[data-swarm]')) candidates.unshift(root);
+    const maxTargets = Math.round(clamp(Number(options.maxTargets) || 160,1,500));
+    const indexed = new Map();
+    const selected = candidates.filter(el => {
+      const r=el.getBoundingClientRect(),style=win.getComputedStyle(el);
+      const structural = ['box','duplicate'].includes(el.dataset.swarm) && r.height > win.innerHeight * 1.15 && el.querySelector('[data-swarm]');
+      return !structural && r.width>0 && r.height>0 && style.display!=='none' && style.visibility!=='hidden'
+        && Number(style.opacity)!==0 && !el.closest('[data-swarm-skip]');
+    }).slice(0,maxTargets);
+    items = [];
+    for (const el of selected) {
+      const type=['box','text','line','duplicate'].includes(el.dataset.swarm)?el.dataset.swarm:'box';
+      const item={el,type,done:false,progress:0,visible:false,lane:null,duration:0,measured:false,parents:[],clips:[],source:null};
+      let parent=el.parentElement;
+      while(parent){
+        if(indexed.has(parent)) item.parents.push(indexed.get(parent));
+        const s=win.getComputedStyle(parent);
+        if(parent!==doc.documentElement && parent!==doc.scrollingElement && /auto|scroll|hidden|clip/.test(s.overflowX+' '+s.overflowY)) item.clips.push(parent);
+        parent=parent.parentElement;
+      }
+      if(type==='duplicate') {
+        let source;
+        try {source=el.dataset.swarmFrom?doc.querySelector(el.dataset.swarmFrom):el.previousElementSibling;} catch {}
+        // Forward/self references are box reveals. Dependencies cannot point into the future.
+        if(source && source!==el && (!source.matches('[data-swarm]') || indexed.has(source))) item.source=source;
+        else item.type='box';
+        item.master=indexed.get(source);
+      }
+      item.cost=type==='text'?clamp(.75+(el.textContent?.trim().length||0)*.022,.85,3):type==='line'?.7:1.15;
+      // Paused WAAPI effects hide future content without mutating inline styles or DOM nodes.
+      items.push(item);
+      item.animation=el.animate([{clipPath:hiddenClip},{clipPath:hiddenClip}],{duration:1000,fill:'both'});
+      item.animation.pause();item.animation.currentTime=0;
+      indexed.set(el,item);
+    }
+    if(!items.length){cleanup('no-targets');return;}
+    host=doc.createElement('div');host.setAttribute('data-swarm-overlay','');host.setAttribute('aria-hidden','true');
+    host.style.cssText='all:initial!important;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;z-index:2147483646!important;pointer-events:none!important;overflow:hidden!important;contain:strict!important;';
+    const shadow=host.attachShadow({mode:'open'}),style=doc.createElement('style');
+    style.textContent=':host{pointer-events:none}svg{display:block;width:100%;height:100%;overflow:hidden}text{font-family:ui-monospace,SFMono-Regular,monospace;font-size:11px;font-weight:500}';
+    shadow.append(style);svg=make('svg',{},shadow);
+    agents=Array.from({length:count},(_,i)=>makeAgent(svg,COLORS[i],String(labels[i]||NAMES[i])));
+    if(win.IntersectionObserver){observer=new win.IntersectionObserver(wake,{threshold:0});items.forEach(item=>observer.observe(item.el));}
+    if(win.ResizeObserver){resizeObserver=new win.ResizeObserver(()=>{items.forEach(item=>item.measured=false);wake();});items.forEach(item=>resizeObserver.observe(item.el));}
+    initialized=true;played.add(doc);revealControl(doc.activeElement);wake();
+  }
+  function intersects(el, clips) {
+    if(!el.isConnected) return false;
+    const r=el.getBoundingClientRect();
+    let left=Math.max(0,r.left),right=Math.min(win.innerWidth,r.right),top=Math.max(0,r.top),bottom=Math.min(win.innerHeight,r.bottom);
+    if(!clips){clips=[];for(let p=el.parentElement;p;p=p.parentElement){const s=win.getComputedStyle(p);if(p!==doc.documentElement && p!==doc.scrollingElement && /auto|scroll|hidden|clip/.test(s.overflowX+' '+s.overflowY))clips.push(p);}}
+    for(const ancestor of clips){
+      if(ancestor===doc.documentElement || ancestor===doc.scrollingElement) continue;
+      const b=ancestor.getBoundingClientRect(),s=win.getComputedStyle(ancestor);
+      // DOMRects are transformed viewport pixels; client metrics are local CSS pixels.
+      // Scale the scrollport before intersecting (axis-aligned positive scales).
+      const scaleX=ancestor.offsetWidth?b.width/ancestor.offsetWidth:1;
+      const scaleY=ancestor.offsetHeight?b.height/ancestor.offsetHeight:1;
+      if(/auto|scroll|hidden|clip/.test(s.overflowX)){left=Math.max(left,b.left+ancestor.clientLeft*scaleX);right=Math.min(right,b.left+(ancestor.clientLeft+ancestor.clientWidth)*scaleX);}
+      if(/auto|scroll|hidden|clip/.test(s.overflowY)){top=Math.max(top,b.top+ancestor.clientTop*scaleY);bottom=Math.min(bottom,b.top+(ancestor.clientTop+ancestor.clientHeight)*scaleY);}
+    }
+    return right>left && bottom>top;
+  }
+  function revealControl(target) {
+    if(!initialized || !target || target===doc.body || target===doc.documentElement) return;
+    for(const item of items) if(!item.done && (item.el===target || item.el.contains(target) || target.contains?.(item.el))) finishItem(item);
+    wake();
+  }
+  function finishItem(item) {
+    item.done=true;item.progress=1;item.lane=null;item.animation?.cancel();item.animation=null;
+    observer?.unobserve(item.el);resizeObserver?.unobserve(item.el);
+  }
+  function wake() {
+    if(closed || !initialized || frame!==undefined) return;
+    if(doc.hidden){wait();return;}
+    frame=win.requestAnimationFrame(tick);
+  }
+  function wait() {
+    if(closed || !initialized) return;
+    win.cancelAnimationFrame(frame);frame=undefined;lastFrame=0;
+    if(buildingSince){batchRemaining=Math.max(0,batchRemaining-(win.performance.now()-buildingSince));buildingSince=0;}
+    win.clearTimeout(watchdog);watchdog=undefined;
+    host?.remove();phase='waiting';notify();
+  }
+  function planBatch(visible) {
+    const fresh=visible.filter(item=>!item.duration);
+    if(!fresh.length) return;
+    const chars=visible.filter(i=>i.type==='text').reduce((n,i)=>n+Math.min(200,i.el.textContent?.trim().length||0),0);
+    const depth=Math.max(0,...visible.map(i=>i.parents.length));
+    const explicit=Number(options.duration);
+    estimatedDuration=Number.isFinite(explicit)&&explicit>0?clamp(explicit,200,30000)
+      :clamp(2200+visible.length*85+chars*2+depth*180+Math.max(0,5-count)*200,3000,12000);
+    // Simulate the same ready-task/backfill scheduler used by tick. Reserving a lane
+    // for a blocked child overestimates the critical path and makes playback too fast.
+    const batch = new Set(visible), simulatedDone = new Set(), started = new Set();
+    let simulatedTime = 0, running = [];
+    while (simulatedDone.size < visible.length) {
+      for (const item of visible) {
+        if (running.length >= count) break;
+        if (started.has(item)) continue;
+        const dependencies = [...item.parents, item.master].filter(dep => dep && batch.has(dep));
+        if (dependencies.some(dep => !simulatedDone.has(dep))) continue;
+        started.add(item);
+        running.push({ item, end: simulatedTime + item.cost * (1 - item.progress) });
+      }
+      if (!running.length) break;
+      simulatedTime = Math.min(...running.map(job => job.end));
+      for (const job of running) if (job.end <= simulatedTime + .00001) simulatedDone.add(job.item);
+      running = running.filter(job => !simulatedDone.has(job.item));
+    }
+    const unit = estimatedDuration / Math.max(.001, simulatedTime);
+    fresh.forEach(item=>{item.duration=Math.max(70,item.cost*unit);});
+    batchRemaining=estimatedDuration*1.8+2500;
+    buildingSince=0;win.clearTimeout(watchdog);watchdog=undefined;
+  }
+  function armWatchdog() {
+    if(watchdog!==undefined) return;
+    if(batchRemaining<=0) batchRemaining=Math.max(3000,estimatedDuration*1.8+2500);
+    buildingSince=win.performance.now();
+    watchdog=win.setTimeout(()=>{
+      watchdog=undefined;buildingSince=0;
+      // Only the visible batch fails open. Unvisited sections retain their scroll gate.
+      for(const item of items) if(!item.done && item.visible) finishItem(item);
+      batchRemaining=0;
+      if(items.every(item=>item.done))cleanup('complete');else{wait();wake();}
+    },batchRemaining);
+  }
+  function tick(time) {
+    frame=undefined;
+    if(closed) return;
+    if(doc.hidden){wait();return;}
+    try {
+      const delta=lastFrame?Math.min(100,time-lastFrame):0;lastFrame=time;
+      for(const item of items){
+        if(item.done) continue;
+        const r=item.el.getBoundingClientRect();
+        if(!item.el.isConnected || r.width<=0 || r.height<=0){finishItem(item);continue;}
+        if(item.w!==r.width || item.h!==r.height) item.measured=false;
+        Object.assign(item,{x:r.x,y:r.y,w:r.width,h:r.height});
+        item.visible=intersects(item.el,item.clips);
+        if(!item.visible) item.lane=null;
+      }
+      const visible=items.filter(item=>!item.done&&item.visible);
+      // A visible child can overflow an offscreen parent's box. Reveal that hidden ancestor immediately.
+      for(const item of visible) for(const parent of item.parents) if(!parent.done&&!parent.visible) finishItem(parent);
+      for(const item of visible) if(item.master&&!item.master.done&&!item.master.visible){item.master=null;item.source=null;item.type='box';item.measured=false;}
+      planBatch(visible);
+      const used=new Set(items.filter(item=>!item.done&&item.lane!==null).map(item=>item.lane));
+      for(const item of visible){
+        if(item.done||item.lane!==null||item.parents.some(parent=>!parent.done)||item.master&&!item.master.done)continue;
+        const lane=agents.findIndex((_,i)=>!used.has(i));
+        if(lane<0) break;
+        item.lane=lane;used.add(lane);item.justStarted=true;
+      }
+      const running=items.filter(item=>!item.done&&item.visible&&item.lane!==null);
+      if(items.every(item=>item.done)){cleanup('complete');return;}
+      if(!running.length){wait();return;}
+      phase='building';armWatchdog();
+      if(!host.isConnected)doc.body.append(host);
+      set(svg,{viewBox:`0 0 ${win.innerWidth} ${win.innerHeight}`,width:win.innerWidth,height:win.innerHeight});
+      agents.forEach(agent=>hide(agent.layer));
+      for(const item of running){
+        if(!item.measured) configure(item);
+        if(!item.justStarted)item.progress=clamp(item.progress+delta/item.duration,0,1);
+        item.justStarted=false;item.animation.currentTime=item.progress*1000;
+        if(item.progress>=1){finishItem(item);continue;}
+        const agent=agents[item.lane];show(agent.layer);draw(item,agent,time);
+      }
+      if(items.every(item=>item.done)){cleanup('complete');return;}
+      notify();if(!closed)frame=win.requestAnimationFrame(tick);
+    } catch {cleanup('error');}
+  }
+  function configure(item) {
+    item.letters=item.type==='text'?measureLetters(item.el,item.el.getBoundingClientRect()):[];
+    let keyframes;
+    if(item.type==='text'&&item.letters.length){
+      keyframes=[{clipPath:hiddenClip,offset:0,easing:'steps(1,end)'}];
+      item.letters.forEach((letter,i)=>keyframes.push({clipPath:letter.clip,offset:.16+(i+1)/item.letters.length*.79,easing:'steps(1,end)'}));
+      keyframes.push({clipPath:'inset(0 0 0 0)',offset:1});
+    } else {
+      const hidden=item.type==='line'?(item.h>item.w?'inset(0 0 100% 0)':'inset(0 100% 0 0)'):hiddenClip;
+      keyframes=[{clipPath:hidden,offset:0},{clipPath:hidden,offset:(item.type==='duplicate'&&item.source?.isConnected) ? .8 : .16},{clipPath:'inset(0 0 0 0)',offset:1}];
+    }
+    item.animation.effect.setKeyframes(keyframes);item.animation.currentTime=item.progress*1000;item.measured=true;
+  }
+  function draw(item,agent,time) {
+    resetAgent(agent);
+    const progress=item.progress,action=clamp((progress-.16)/.84,0,1);
+    let x,y;
+    const logo=root.querySelector('[data-swarm-logo]')?.getBoundingClientRect();
+    const origin=logo&&logo.width&&logo.height&&logo.bottom>0&&logo.top<win.innerHeight
+      ?{x:logo.x+logo.width/2,y:logo.y+logo.height/2}:{x:win.innerWidth/2,y:win.innerHeight*.4};
+    const source=item.source?.isConnected?item.source.getBoundingClientRect():null;
+    if(progress<.16){
+      const start=source||item;
+      const orbit=progress<.045?(1-progress/.045)*22:0;
+      x=lerp(origin.x,start.x,ease(progress/.16))+Math.cos(time/240+item.lane)*orbit;
+      y=lerp(origin.y,start.y,ease(progress/.16))+Math.sin(time/240+item.lane)*orbit;
+    }else if(item.type==='text'){
+      const letter=item.letters[Math.min(item.letters.length-1,Math.floor(action*item.letters.length))];
+      x=item.x+(letter?letter.x:item.w*action);y=item.y+(letter?letter.y:item.h);
+      show(agent.ibeam);hide(agent.pointer);
+      set(agent.caret,{x1:x,y1:item.y+(letter?.top||0),x2:x,y2:y});show(agent.caret);
+      set(agent.guide,{x1:Math.max(0,item.x-30),y1:item.y+item.h,x2:Math.min(win.innerWidth,item.x+item.w+30),y2:item.y+item.h});show(agent.guide);
+    }else if(item.type==='line'){
+      const vertical=item.h>item.w;
+      x=item.x+(vertical?item.w/2:item.w*action);y=item.y+(vertical?item.h*action:item.h/2);
+      const startX=vertical?x:item.x,startY=vertical?item.y:y;
+      show(agent.pen);hide(agent.pointer);
+      set(agent.trace,{x1:startX,y1:startY,x2:x,y2:y});show(agent.trace);
+      set(agent.anchor,{cx:startX,cy:startY});show(agent.anchor);
+    }else if(item.type==='duplicate'&&source){
+      x=lerp(source.x,item.x,ease(action));y=lerp(source.y,item.y,ease(action));
+      set(agent.box,{x,y,width:item.w,height:item.h});show(agent.box);badge(agent,x+8,y-25,'⌥ copy');
+    }else{
+      x=item.x+item.w*action;y=item.y+item.h*action;show(agent.crosshair);hide(agent.pointer);
+      set(agent.box,{x:item.x,y:item.y,width:Math.max(1,x-item.x),height:Math.max(1,y-item.y)});show(agent.box);
+      badge(agent,x+14,y-30,`${Math.round(item.w*action)} × ${Math.round(item.h*action)}`);
+    }
+    set(agent.cursor,{transform:`translate(${clamp(x,6,win.innerWidth-10)} ${clamp(y,6,win.innerHeight-10)})`});
+  }
+  function measureLetters(el, rect) {
+    if (win.getComputedStyle(el).direction === 'rtl') return [];
+    const nodes = [], walker = doc.createTreeWalker(el, win.NodeFilter.SHOW_TEXT);
+    for (let node = walker.nextNode(); node; node = walker.nextNode()) nodes.push(node);
+    const length = nodes.reduce((total, node) => total + node.length, 0);
+    const stride = Math.max(1, Math.ceil(length / 120));
+    const letters = [], range = doc.createRange();
+    let index = 0;
+    for (const node of nodes) {
+      let offset = 0;
+      // Grapheme boundaries keep emoji and combining characters intact.
+      const segments = typeof Intl.Segmenter === 'function'
+        ? [...new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(node.data)].map(v=>v.segment)
+        : Array.from(node.data);
+      for (const char of segments) {
+        const end = offset + char.length;
+        index += char.length;
+        if (index % stride < char.length || index === length) {
+          range.setStart(node, offset);range.setEnd(node, end);
+          const r = range.getClientRects()[0];
+          if (r && r.width > 0 && r.height > 0) {
+            const x=clamp(r.right-rect.x,0,rect.width),top=clamp(r.top-rect.y-2,0,rect.height),bottom=clamp(r.bottom-rect.y+2,0,rect.height);
+            letters.push({x:r.right-rect.x,y:r.bottom-rect.y,top:r.top-rect.y,clip:`polygon(0 0,100% 0,100% ${top}px,${x}px ${top}px,${x}px ${bottom}px,0 ${bottom}px)`});
+          }
+        }
+        offset=end;
+      }
+    }
+    return letters;
+  }
+  function make(tag, attributes, parent) {
+    const el=doc.createElementNS(NS,tag);set(el,attributes);parent?.append(el);return el;
+  }
+  function makeAgent(svg,color,name) {
+    const layer=make('g',{},svg);
+    const guide=make('line',{stroke:'#e87878','stroke-width':1,'stroke-dasharray':'4 4'},layer);
+    const trace=make('line',{stroke:color,'stroke-width':2},layer);
+    const anchor=make('circle',{r:3,fill:'white',stroke:color,'stroke-width':1.5},layer);
+    const caret=make('line',{stroke:color,'stroke-width':2},layer);
+    const box=make('rect',{fill:'none',stroke:color,'stroke-width':1.3,rx:1},layer);
+    const pill=make('g',{},layer);
+    const pillRect=make('rect',{height:20,rx:4,fill:color},pill);
+    const pillText=make('text',{x:7,y:14,fill:'white'},pill);
+    const cursor=make('g',{},layer);
+    const pointer=make('path',{d:'M0 0L0 19L5.5 14.5L9.5 23L13 21L9 13L16 12Z',fill:color,stroke:'white','stroke-width':1.3,'stroke-linejoin':'round'},cursor);
+    const crosshair=make('path',{d:'M-9 0H9M0 -9V9',stroke:color,'stroke-width':1.8},cursor);
+    const ibeam=make('path',{d:'M-4 -11H4M0 -11V9M-4 9H4',stroke:color,'stroke-width':1.8},cursor);
+    const pen=make('path',{d:'M0 0L6 -14L15 -5Z M0 0L8 -7',fill:'white',stroke:color,'stroke-width':1.5},cursor);
+    make('rect',{x:15,y:19,width:Math.min(name.length,18)*6.6+13,height:19,rx:4,fill:color},cursor);
+    make('text',{x:21,y:32,fill:'white'},cursor).textContent=name.slice(0,18);
+    return {layer,cursor,pointer,crosshair,ibeam,pen,guide,trace,anchor,caret,box,pill,pillRect,pillText};
+  }
+  function set(el,attributes) { for(const [name,value] of Object.entries(attributes)) el.setAttribute(name,String(value)); }
+  function show(el) { el.removeAttribute('display'); }
+  function hide(el) { el.setAttribute('display','none'); }
+  function resetAgent(agent) {
+    for (const key of ['crosshair','ibeam','pen','guide','trace','anchor','caret','box','pill']) hide(agent[key]);
+    show(agent.pointer);
+  }
+  function badge(agent,x,y,text) {
+    const width=text.length*6.6+14;
+    set(agent.pill,{transform:`translate(${clamp(x,4,win.innerWidth-width-4)} ${clamp(y,4,win.innerHeight-24)})`});agent.pillText.textContent=text;
+    set(agent.pillRect,{width});show(agent.pill);
+  }
+}
+
+let run;
+const replay=document.querySelector('#replay');
+const skip=document.querySelector('#skip');
+const note=document.querySelector('#phase-note');
+function showState(state){
+  window.swarmState=state;
+  const labels={preparing:'准备开始',building:'正在搭建当前区域…',waiting:'当前区域已完成 · 向下滚动继续',complete:'整页已完成 · 自由浏览',cancelled:'已显示完整页面'};
+  note.textContent=labels[state.phase]||'';
+  skip.hidden=state.phase==='complete'||state.phase==='cancelled';
+}
+function play(force=false){
+  run?.cleanup(); window.swarmResult=null;
+  run=startSwarmIntro({root:document.querySelector('#site'),force,onStateChange:showState});
+  window.swarmRun=run;
+  run.finished.then(result=>{window.swarmResult=result;});
+}
+replay.addEventListener('click',()=>{run?.cleanup('replay');window.scrollTo(0,0);requestAnimationFrame(()=>play(true));});
+skip.addEventListener('click',()=>run?.cleanup('skip'));
+document.querySelector('form').addEventListener('submit',event=>{event.preventDefault();document.querySelector('#notice').textContent='交互正常 ✓';});
+play();
+</script>
+</body></html>

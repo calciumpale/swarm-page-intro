@@ -1,0 +1,4 @@
+interface:
+  display_name: "Swarm 网页协作开场"
+  short_description: "多彩鼠标随滚动协作搭建网页，按内容复杂度调整节奏并保留正常交互"
+  default_prompt: "使用 $swarm-page-intro 为当前项目接入约 6 秒且按复杂度自适应的多光标搭建效果，随滚动继续，停滚后等待新区域。"

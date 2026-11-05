@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swarm Page Intro — 可交互演示</title>
+<style>
+*{box-sizing:border-box}html{background:#f4f3ef;color:#202320;font-family:Arial,"PingFang SC",sans-serif}body{margin:0}button,a,input{font:inherit}a{color:inherit;text-decoration:none}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #6b57d5;outline-offset:5px}.page{max-width:1240px;margin:auto;padding:0 44px}nav{height:92px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:23px;font-weight:800;letter-spacing:-1px;display:flex;align-items:center;gap:10px}.mark{display:inline-grid;width:26px;height:26px;place-items:center;background:#202320;color:#fff;border-radius:7px;font-size:20px}.nav-right{display:flex;align-items:center;gap:30px;font-size:13px}.nav-right button{border:1px solid #cccfc5;border-radius:30px;padding:10px 16px;background:transparent;font-size:12px}.line{height:1px;background:#cccfc5}.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:65px;align-items:center;padding:56px 0 48px}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;margin:0 0 24px;color:#646b63}h1{font-size:clamp(45px,5.4vw,72px);letter-spacing:-4px;line-height:1.04;margin:0;font-weight:500}h1 span{display:block;width:fit-content}.serif{font-family:Georgia,serif;font-style:italic;color:#597258;letter-spacing:-3px}.sub{font-size:14px;color:#6b7069;line-height:1.9;margin:22px 0 25px}.sub span{display:block;width:fit-content}.primary{display:inline-flex}.primary-visual{border:0;background:#253c2c;color:#fff;padding:15px 22px;border-radius:6px;display:inline-flex;gap:38px;align-items:center;font-size:13px}.hero-art{height:300px;background:#e2e6db;border-radius:18px;position:relative;overflow:hidden;display:grid;place-items:center}.art-grid{position:absolute;inset:0;background-image:linear-gradient(#b0b9a325 1px,transparent 1px),linear-gradient(90deg,#b0b9a325 1px,transparent 1px);background-size:30px 30px}.canvas-card{width:74%;height:204px;border:1px solid #bcc7b2;border-radius:10px;background:#fafbf7;box-shadow:0 22px 32px #30462518;position:relative;padding:22px}.canvas-top{display:flex;justify-content:space-between;font-size:10px;color:#5f735d;letter-spacing:1px}.canvas-title{font-size:29px;font-family:Georgia,serif;margin:25px 0 18px;letter-spacing:-1px}.mini-grid{display:flex;gap:8px}.mini{height:49px;flex:1;border-radius:5px;background:#cdd7c4}.mini:nth-child(2){background:#d8d6e5}.mini:nth-child(3){background:#e8dac3}.art-badge{position:absolute;bottom:19px;right:20px;font-size:10px;letter-spacing:1px;color:#6a7964}.section-top{display:flex;align-items:center;justify-content:space-between;padding:23px 0 18px;font-size:11px;letter-spacing:1.8px}.muted{color:#8a9086}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project{border:1px solid #d4d7ce;border-radius:12px;background:#f9f9f5;padding:23px;min-height:153px}.project-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;color:#77836e;font:11px monospace}.project h2{font-size:20px;font-weight:500;letter-spacing:-.5px;margin:0 0 9px;width:fit-content}.project p{margin:0;color:#7b8177;font-size:12px;width:fit-content}.bottom{display:flex;align-items:center;justify-content:space-between;padding:26px 0 30px;color:#7c8377;font-size:11px;gap:20px}.test-form{display:flex;align-items:center;gap:7px}.test-form input{width:160px;border:1px solid #cdd1c7;border-radius:5px;padding:8px 10px;background:#fafbf7;font-size:11px}.test-form button{padding:8px 12px;border:1px solid #cdd1c7;border-radius:5px;background:transparent;font-size:11px}#notice{min-height:15px}.demo-help{color:#83897e;font-size:10px;padding-bottom:24px}#replay{white-space:nowrap}@media(max-width:700px){.page{padding:0 22px}nav{height:72px}.nav-right{gap:14px}.nav-right a{display:none}.hero{grid-template-columns:1fr;gap:28px;padding:37px 0 30px}h1{font-size:52px;letter-spacing:-3px}.hero-art{height:205px}.canvas-card{height:160px;padding:16px}.canvas-title{margin:18px 0;font-size:23px}.mini{height:27px}.cards{grid-template-columns:1fr}.project{min-height:130px}.bottom{align-items:flex-start;flex-direction:column}.sub{font-size:12px}.brand{font-size:20px}}
+
+.chapter{padding:112px 0 90px;min-height:850px}.chapter-title{font-size:clamp(38px,4.8vw,64px);letter-spacing:-2.6px;line-height:1.08;font-weight:500;margin:22px 0 25px}.chapter-title span{display:block;width:fit-content}.chapter-lead{color:#71796d;font-size:15px;line-height:1.9;margin-bottom:40px;max-width:600px}.feature-layout{display:grid;grid-template-columns:1.25fr 1fr;gap:50px;align-items:center}.feature-art{height:350px;border-radius:18px;background:#e0e3d7;display:flex;align-items:center;justify-content:center;gap:15px;padding:40px}.tile{width:36%;height:215px;border:1px solid #c4ceba;background:#f7f8f1;border-radius:10px;padding:20px;display:flex;flex-direction:column;justify-content:space-between}.tile:nth-child(2){background:#384e3d;color:#f2f1dd;margin-top:46px}.tile-name{font-family:Georgia,serif;font-size:29px}.tile-note{font:10px monospace;letter-spacing:1px}.feature-copy h3{font-size:31px;font-weight:500;letter-spacing:-1px;margin:0 0 19px;width:fit-content}.feature-copy p{color:#727b6b;line-height:2;font-size:14px;max-width:380px}.pill-row{display:flex;gap:8px;margin-top:25px}.tag{padding:8px 13px;border:1px solid #cdd2c5;border-radius:20px;font-size:10px;color:#6f7965}.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}.process-card{background:#f9f9f5;border:1px solid #d4d7ce;border-radius:12px;min-height:230px;padding:27px}.process-card .step{font:12px monospace;color:#8a9380}.process-card h3{font-size:24px;font-weight:500;margin:37px 0 14px;width:fit-content}.process-card p{font-size:13px;line-height:1.9;color:#7a8174;margin:0}.closing{padding:95px 0 75px;text-align:center}.closing h2{font:italic 58px Georgia,serif;color:#597258;letter-spacing:-2px;width:fit-content;margin:0 auto 25px}.closing p{width:fit-content;margin:0 auto 30px;color:#727a6b;font-size:14px}.demo-status{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:2147483645;display:flex;align-items:center;gap:18px;border:1px solid #d4d7ce;background:#fafbf5ed;backdrop-filter:blur(12px);box-shadow:0 6px 25px #28332110;border-radius:30px;padding:11px 16px;font-size:11px;color:#627058;max-width:calc(100% - 30px);white-space:nowrap}.demo-status button{border:0;border-radius:18px;background:#e8edde;color:#52614a;padding:7px 12px;font-size:11px}.demo-status button[hidden]{display:none}.scroll-invite{padding-top:30px;color:#939b89;font:10px monospace;letter-spacing:2px}.bottom{padding-bottom:90px}@media(max-width:700px){.chapter{padding:80px 0 55px;min-height:0}.feature-layout{grid-template-columns:1fr;gap:30px}.feature-art{height:275px;padding:25px}.tile{height:170px;width:44%;padding:13px}.tile-name{font-size:24px}.chapter-title{font-size:42px}.chapter-lead{font-size:13px}.process-grid{grid-template-columns:1fr}.process-card{min-height:185px}.process-card h3{margin-top:25px}.closing h2{font-size:42px}.closing{padding:80px 0 50px}.demo-status{font-size:10px;gap:10px}}
+</style>
+</head>
+<body>
+<div class="page" id="site">
+<nav><a class="brand" href="#" aria-label="Forma 首页"><span class="mark" data-swarm="box" data-swarm-logo>f</span><span data-swarm="text">forma.</span></a><div class="nav-right"><a href="#work"><span data-swarm="text">Selected work</span></a><button id="replay">↻ 重播开场</button></div></nav>
+<div class="line" data-swarm="line"></div>
+<section class="hero">
+<div><p class="eyebrow" data-swarm="text">Independent minds. Shared canvas.</p><h1><span data-swarm="text">Good things.</span><span class="serif" data-swarm="text">Built together.</span></h1><p class="sub"><span data-swarm="text">把想法变成看得见、用得上的作品。</span><span data-swarm="text">让每一处细节，都有它存在的理由。</span></p><a class="primary" href="#work"><span class="primary-visual" data-swarm="box">Explore our work <span>↗</span></span></a></div>
+<div class="hero-art" data-swarm="box"><div class="art-grid"></div><div class="canvas-card" data-swarm="box"><div class="canvas-top"><span data-swarm="text">A SHARED CANVAS</span><span>↗</span></div><div class="canvas-title" data-swarm="text">Room for good ideas.</div><div class="mini-grid"><div class="mini" id="mini-master" data-swarm="box"></div><div class="mini" data-swarm="duplicate" data-swarm-from="#mini-master"></div><div class="mini" data-swarm="duplicate" data-swarm-from="#mini-master"></div></div></div><div class="art-badge">THOUGHTFULLY PUT TOGETHER</div></div>
+</section>
+<div class="line" data-swarm="line"></div>
+<div class="section-top"><span data-swarm="text">SELECTED PROJECTS</span><span class="muted">01 — 03 / 2026</span></div>
+<section class="cards" id="work">
+<article class="project" id="project-master" data-swarm="box"><div class="project-head"><span>01 / IDENTITY</span><span>↗</span></div><h2 data-swarm="text">A quieter kind of bold.</h2><p data-swarm="text">品牌系统 · Brand identity</p></article>
+<article class="project" data-swarm="duplicate" data-swarm-from="#project-master"><div class="project-head"><span>02 / DIGITAL</span><span>↗</span></div><h2 data-swarm="text">Ideas, made useful.</h2><p data-swarm="text">数字体验 · Digital experience</p></article>
+<article class="project" data-swarm="duplicate" data-swarm-from="#project-master"><div class="project-head"><span>03 / PRODUCT</span><span>↗</span></div><h2 data-swarm="text">Small details. Big feeling.</h2><p data-swarm="text">产品设计 · Product design</p></article>
+</section>
+
+<div class="scroll-invite">SCROLL TO SEE WHAT COMES NEXT ↓</div>
+<section class="chapter" id="identity">
+<div class="line" data-swarm="line"></div>
+<p class="eyebrow" style="margin-top:30px" data-swarm="text">01 / A CLOSER LOOK</p>
+<h2 class="chapter-title"><span data-swarm="text">A little less noise.</span><span class="serif" data-swarm="text">A lot more meaning.</span></h2>
+<p class="chapter-lead" data-swarm="text">好的设计，值得慢一点看。把熟悉的事物重新整理，让每一次接触都清楚、自然。</p>
+<div class="feature-layout">
+<div class="feature-art" data-swarm="box"><div class="tile" id="tile-master" data-swarm="box"><span class="tile-note" data-swarm="text">THE EVERYDAY SERIES</span><span class="tile-name" data-swarm="text">Olea.</span><span class="tile-note" data-swarm="text">GROW AT YOUR OWN PACE</span></div><div class="tile" data-swarm="duplicate" data-swarm-from="#tile-master"><span class="tile-note" data-swarm="text">THOUGHTFULLY SIMPLE</span><span class="tile-name" data-swarm="text">Olea.</span><span class="tile-note" data-swarm="text">MADE TO FEEL RIGHT</span></div></div>
+<div class="feature-copy"><h3 data-swarm="text">Made for everyday.</h3><p data-swarm="text">从名字、颜色到包装上的一行小字，我们让每个部分都说同一种语言。安静，也有自己的辨识度。</p><div class="pill-row"><span class="tag" id="tag-master" data-swarm="box">STRATEGY</span><span class="tag" data-swarm="duplicate" data-swarm-from="#tag-master">IDENTITY</span><span class="tag" data-swarm="duplicate" data-swarm-from="#tag-master">PACKAGING</span></div></div>
+</div></section>
+<section class="chapter" id="process">
+<div class="line" data-swarm="line"></div>
+<p class="eyebrow" style="margin-top:30px" data-swarm="text">02 / HOW WE WORK</p>
+<h2 class="chapter-title"><span data-swarm="text">From a first thought</span><span class="serif" data-swarm="text">to the final detail.</span></h2>
+<p class="chapter-lead" data-swarm="text">一个方向，一起推敲。让想法在讨论、尝试和打磨中，长成真正可用的作品。</p>
+<div class="process-grid">
+<article class="process-card" id="step-master" data-swarm="box"><span class="step">01 — DISCOVER</span><h3 data-swarm="text">Ask better questions.</h3><p data-swarm="text">从问题开始。理解真实的使用场景，找到最值得解决的那一件事。</p></article>
+<article class="process-card" data-swarm="duplicate" data-swarm-from="#step-master"><span class="step">02 — EXPLORE</span><h3 data-swarm="text">Make room to try.</h3><p data-swarm="text">把想法做出来。在真实的尺度里比较、体验，再选择适合的方向。</p></article>
+<article class="process-card" data-swarm="duplicate" data-swarm-from="#step-master"><span class="step">03 — REFINE</span><h3 data-swarm="text">Care for the details.</h3><p data-swarm="text">回到每一处细节。持续打磨，让作品的外观和使用感受同样完整。</p></article>
+</div></section>
+<div class="line" data-swarm="line"></div>
+<section class="closing"><h2 data-swarm="text">Let's make it matter.</h2><p data-swarm="text">从一个好问题，开始下一件作品。</p><a class="primary" href="mailto:hello@example.com"><span class="primary-visual" data-swarm="box">Start a conversation <span>↗</span></span></a></section>
+
+<footer class="bottom"><span>FORMA STUDIO © 2026 · 演示项目</span><form class="test-form"><input aria-label="测试输入" placeholder="试试输入，内容会保留"><button type="submit">测试交互</button><span id="notice" aria-live="polite"></span></form></footer>
+<div class="demo-help">Swarm Page Intro 演示 · 按内容复杂度调整节奏，随滚动继续搭建。Esc 或“跳过动画”可立即显示全页；开启“减少动态效果”时跳过。</div>
+</div>
+<div class="demo-status" role="status"><span id="phase-note">准备开始</span><button id="skip">跳过动画</button></div>
+<script type="module">
+import {startSwarmIntro} from './swarm-intro.js';
+let run;
+const replay=document.querySelector('#replay');
+const skip=document.querySelector('#skip');
+const note=document.querySelector('#phase-note');
+function showState(state){
+  window.swarmState=state;
+  const labels={preparing:'准备开始',building:'正在搭建当前区域…',waiting:'当前区域已完成 · 向下滚动继续',complete:'整页已完成 · 自由浏览',cancelled:'已显示完整页面'};
+  note.textContent=labels[state.phase]||'';
+  skip.hidden=state.phase==='complete'||state.phase==='cancelled';
+}
+function play(force=false){
+  run?.cleanup(); window.swarmResult=null;
+  run=startSwarmIntro({root:document.querySelector('#site'),force,onStateChange:showState});
+  window.swarmRun=run;
+  run.finished.then(result=>{window.swarmResult=result;});
+}
+replay.addEventListener('click',()=>{run?.cleanup('replay');window.scrollTo(0,0);requestAnimationFrame(()=>play(true));});
+skip.addEventListener('click',()=>run?.cleanup('skip'));
+document.querySelector('form').addEventListener('submit',event=>{event.preventDefault();document.querySelector('#notice').textContent='交互正常 ✓';});
+play();
+</script>
+</body></html>
